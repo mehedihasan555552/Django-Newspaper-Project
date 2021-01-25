@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils import timezone
-from embed_video.fields import EmbedVideoField
 from multiselectfield import MultiSelectField
 now = timezone.now()
 
