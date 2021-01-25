@@ -1,0 +1,7 @@
+django-multiselectfield
+Django==3.0.4
+django-heroku==0.3.1
+gunicorn==20.0.4
+Pillow==7.0.0
+whitenoise==5.0.1
+

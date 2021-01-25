@@ -1,0 +1,287 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehedi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static '/css/main.css'%}">
+  
+
+</head>
+<body>
+
+    <!-- <div class="container"> -->
+
+
+        
+    <!-- navbar -->
+
+    <nav class="navbar navbar-expand-lg navbar">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index'%}">Mehedi</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+        
+            </ul>
+            <form class="d-flex" method="get" action="/search" >
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query" id="query">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                 </form>
+          </div>
+        </div>
+      </nav>
+
+
+      <!-- navbar -->
+
+
+      <!-- Hero section  -->
+
+      <section class="hero py-4">
+          <div class="container">
+              <div class="row">
+                
+                  <div class="col-lg-8">
+                   {% for post in l %}
+                    <div class="hero-post shadow ">
+                          <a href="{% url 'latestpost' post.id %}"><img class="img-fluid" src="{{ post.post_pic.url }}" alt="image"></a>
+
+                          <div class="hero-post-badge text-center row">
+                              <a class="p-1 mb-1 mx-3"href=""> <i class="fa fa-calendar-o" aria-hidden="true"></i> {{post.date_posted| date:"F d Y"}}</a>
+                              <a class="p-1 mx-3"href="">{{post.category}}</a>
+                          </div>
+
+                          <div class="hero-post-content">
+                              <div class="row">
+                                  <div class="col-sm-3">
+                                      <img src="{% static 'images/1.jpg'%}" class="img-fluid rounded-circle" alt="Author">
+                                  </div>
+                                  <div class="col-sm-9">
+                                      <a href="{% url 'latestpost' post.id %}"><h2>{{ post.title|truncatewords:10 }}</h2></a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      {% endfor %}
+                    
+
+                  </div>
+                  <div class="col-lg-4">
+
+                    {% for post in ll %}
+                    <div class="hero-post shadow ">
+                        <a href="{% url 'latestpost' post.id %}"><img class="img-fluid" src="{{ post.post_pic.url }}" alt="image"></a>
+                        <div class="hero-post-badge row text-center">
+                            <a class="p-1 mb-1 mx-3"href=""> <i class="fa fa-calendar-o" aria-hidden="true"></i> {{post.date_posted| date:"F d Y"}}</a>
+                            <a class="p-1 mx-3"href="">{{post.category}}</a>
+                        </div>
+                        <div class="hero-post-content">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="{% static 'images/1.jpg'%}" class="img-fluid rounded-circle" alt="Author">
+                                </div>
+                                <div class="col-sm-9">
+                                    <a href="{% url 'latestpost' post.id %}"><h4>{{ post.title|truncatewords:10 }}</h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+
+
+                  </div>
+              </div>
+          </div>
+
+      </section>
+
+      <!-- Hero section  -->
+
+      <!-- blog-section -->
+
+
+      <section class="blog-posts py-4">
+          <div class="container">
+          <div class="row">
+            
+              <div class="col-md-8">
+                {% for post in posts %}
+                  <article class="blog-post mb-3">
+                      <div class="row">
+                          <div class="col-sm-4">
+                             <a href="{% url 'latestpost' post.id %}"><img src="{{ post.post_pic.url }}" class="img-fluid"alt=""></a> 
+                          </div>
+                         
+
+                          <div class="col-sm-8">
+                           <a href="{% url 'latestpost' post.id %}"><h3>{{ post.title|truncatewords:10 }}</h3></a> 
+                            <p>{{ post.content|truncatewords:50 }}
+                                 </p>
+
+                                 <div class="hero-post-badges">
+                                    <a href=""> <i class="fa fa-calendar-o" aria-hidden="true"></i> {{post.date_posted| date:"F d Y"}},</a>
+                                    <a href="">{{post.category}}</a>
+                                </div>
+                        </div>
+                          
+                      </div>
+
+                  </article>
+
+                  {% endfor %}
+
+                 
+              </div>
+
+              <aside class="col-md-4">
+
+                <div class="row text-center social-link">
+                    <div class="col-sm-4">
+                        <a href="" class="social-link py-4 w-100 "></a>
+                        <i class="fa fa-facebook-official" arial-hidden="True"></i>
+                    </div>
+
+                    <div class="col-sm-4 secondary-color">
+                        <a href="" class="social-link py-4 w-100  "></a>
+                        <i class="fa fa-twitter" arial-hidden="True"></i>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <a href="" class="social-link py-4 w-100 "></a>
+                        <i class="fa fa-youtube" arial-hidden="True"></i>
+                    </div>
+                </div>
+                    <h4 class="aside-heading mt-4 px-3">Author</h4>
+                    <article class="row mb-3 pt-3">
+                        <div class="col-sm-3">
+                            <img src="images/1.jpg" class="img-fluid rounded-circle" alt="">
+                        </div>
+                        <div class="col-sm-9">
+                            <h5>Mehedi Hasan</h5>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting 
+                                industry. Lorem Ipsum has been the industry's standard dummy
+                                 text ever since the 1500s</p>
+                            <div class="social-links ">
+                                <a href=""><i class="fa fa-facebook-official" arial-hidden="True"></i></a>
+                                <a href=""> <i class="fa fa-twitter" arial-hidden="True"></i></a>
+                                <a href=""><i class="fa fa-youtube" arial-hidden="True"></i></a>
+                            </div>     
+                        </div>
+
+                    </article>
+
+                    <div class="categories mt-4 text-center">
+                        <h2>Categories</h2>
+                        <div class="badge w-100">
+                            <h4 class="badge-link"><a href="{% url 'programing'%}">Programing</a></h4>
+                            <h4 class="badge-link"><a href="{% url 'tech'%}">Technology</a></h4>
+                            <h4 class="badge-link"><a href="{% url 'international'%}">International</a></h4>
+                            <h4 class="badge-link"><a href="{% url 'it'%}">IT</a></h4>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </aside>
+          </div>
+
+
+         
+
+            
+        </div>
+
+
+        <!-- /pagination -->
+
+        <div class="" style="margin-left:550px;">
+
+            
+
+            
+            <ul>
+                
+                {% for i in paginator.page_range %}
+               <li style="display:inline; font-size: 2.5rem;"><a href="?page={{i}}">{{i}},</a></li>
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+      
+
+      </section>
+
+
+      <!-- blog-section -->
+
+
+      <!-- Footer section -->
+
+      <footer class="footer py-5">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-4">
+                      <a href="" class="footer-logo">Mehedi</a>
+                      <p>What is Lorem Ipsum Lorem Ipsum is simply dummy text 
+                          of the printing and typesetting industry Lorem Ipsum 
+                          has been the industry's standard dummy text ever since 
+                          the 1500s when an unknown printer took a galley of type and</p>
+
+                  </div>
+                  <div class="col-md-4">
+                      <h4>Links</h4>
+                      <ul>
+                          <li><a href="">Home</a></li>
+                          <li><a href="">Link</a></li>
+                          <li><a href="">Contact Us</a></li>
+                         
+                      </ul>
+                      
+                      
+                      
+                </div>
+                <div class="col-md-4">
+
+                    <p>What is Lorem Ipsum Lorem Ipsum is simply dummy text of the 
+                        printing and typesetting industry Lorem Ipsum has been the
+                         industry's standard dummy text ever since the 1500s
+                         when an unknown printer took a galley of type and scrambled 
+                         it to make a type specimen book it has?</p>
+                   
+                      
+                </div>
+                <div class="w-100  text-center">
+                    <h5>Made by <a href="">Mehedi Hasan</a></h5>
+                </div>
+              </div>
+          </div>
+      </footer>
+
+
+      
+
+      <!-- Footer section -->
+
+
+
+    </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>
