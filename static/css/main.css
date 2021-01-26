@@ -133,15 +133,26 @@ img.rounded-circle{
 
 @media only screen 
 and (min-device-width : 320px) 
-and (max-device-width : 480px) { #hello { display: none; }}
+and (max-device-width : 480px) { #hello { display: none; } #motitle{margin-top: 50px;}}
 
-.hello {
-    display: none;
-}
 
 @media all and (max-width: 768px){
 #hello {
     display: none;
 }
+
+#motitle{
+    padding: 20px;
+    
+}
+#motop{
+    margin-top: 15px;
+    margin: 10px;
+}
+
+#m{
+    margin: 10px;
+}
+
 }
 

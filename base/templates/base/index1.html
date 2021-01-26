@@ -62,11 +62,11 @@
                   <div class="col-lg-8">
                    {% for post in l %}
                     <div class="hero-post shadow ">
-                          <a href="{% url 'latestpost' post.id %}"><img class="img-fluid" src="{{ post.post_pic.url }}" alt="image"></a>
+                          <a id="top" href="{% url 'latestpost' post.id %}"><img class="img-fluid" src="{{ post.post_pic.url }}" alt="image"></a>
 
                           <div class="hero-post-badge text-center row">
-                              <a class="p-1 mb-1 mx-3"href=""> <i class="fa fa-calendar-o" aria-hidden="true"></i> {{post.date_posted| date:"F d Y"}}</a>
-                              <a class="p-1 mx-3"href="">{{post.category}}</a>
+                              <a id="hello" class="p-1 mb-1 mx-3"href=""> <i class="fa fa-calendar-o" aria-hidden="true"></i> {{post.date_posted| date:"F d Y"}}</a>
+                              <a id="hello"class="p-1 mx-3"href="">{{post.category}}</a>
                           </div>
 
                           <div class="hero-post-content">
@@ -74,8 +74,8 @@
                                   <div class="col-sm-3">
                                       <img id='hello' src="{% static 'images/1.jpg'%}" class="img-fluid rounded-circle" alt="Author">
                                   </div>
-                                  <div class="col-sm-9">
-                                      <a href="{% url 'latestpost' post.id %}"><h2>{{ post.title|truncatewords:10 }}</h2></a>
+                                  <div class="col-sm-9" >
+                                      <a  href="{% url 'latestpost' post.id %}"><h2 id="motitle">{{ post.title|truncatewords:10 }}</h2></a>
                                   </div>
                               </div>
                           </div>
@@ -90,8 +90,8 @@
                     <div class="hero-post shadow ">
                         <a href="{% url 'latestpost' post.id %}"><img class="img-fluid" src="{{ post.post_pic.url }}" alt="image"></a>
                         <div class="hero-post-badge row text-center">
-                            <a class="p-1 mb-1 mx-3"href=""> <i class="fa fa-calendar-o" aria-hidden="true"></i> {{post.date_posted| date:"F d Y"}}</a>
-                            <a class="p-1 mx-3"href="">{{post.category}}</a>
+                            <a id="hello" class="p-1 mb-1 mx-3"href=""> <i class="fa fa-calendar-o" aria-hidden="true"></i> {{post.date_posted| date:"F d Y"}}</a>
+                            <a id="hello" class="p-1 mx-3"href="">{{post.category}}</a>
                         </div>
                         <div class="hero-post-content">
                             <div class="row">
@@ -99,7 +99,7 @@
                                     <img id='hello' src="{% static 'images/1.jpg'%}" class="img-fluid rounded-circle" alt="Author">
                                 </div>
                                 <div class="col-sm-9">
-                                    <a href="{% url 'latestpost' post.id %}"><h4>{{ post.title|truncatewords:10 }}</h4></a>
+                                    <a href="{% url 'latestpost' post.id %}"><h4 id="motitle" >{{ post.title|truncatewords:10 }}</h4></a>
                                 </div>
                             </div>
                         </div>
@@ -134,8 +134,8 @@
                          
 
                           <div class="col-sm-8">
-                           <a href="{% url 'latestpost' post.id %}"><h3>{{ post.title|truncatewords:10 }}</h3></a> 
-                            <p>{{ post.content|truncatewords:50 }}
+                           <a href="{% url 'latestpost' post.id %}"><h3 id="motop">{{ post.title|truncatewords:10 }}</h3></a> 
+                            <p id="motop">{{ post.content|truncatewords:50 }}
                                  </p>
 
                                  <div class="hero-post-badges">
