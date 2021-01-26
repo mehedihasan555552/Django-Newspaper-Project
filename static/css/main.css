@@ -135,7 +135,7 @@ img.rounded-circle{
 and (min-device-width : 320px) 
 and (max-device-width : 480px) { #hello { display: none; }}
 
-.hero-post-content {
+.hello {
     display: none;
 }
 
